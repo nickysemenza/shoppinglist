@@ -1,17 +1,41 @@
-.browsehappy {
-  margin: 0.2em 0;
-  background: #ccc;
-  color: #000;
-  padding: 0.2em 0;
-}
+$grey-color: #737170;
+$baby-blue: #1681F9;
+/* custom navbar*/
+.navbar-custom {
+  background-color: $baby-blue; }
 
-.thumbnail {
-  height: 200px;
+.navbar-custom .navbar-nav > li > a {
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px; }
 
-  img.pull-right {
-    width: 50px;
-  }
-}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus, .navbar-nav > .active > li.active {
+  color: white;
+  background-color: transparent; }
+
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: $grey-color; }
+
+.navbar-custom .navbar-brand {
+  color: white; }
+
+.navbar-custom .navbar-toggle {
+  background-color: white; }
+
+.navbar-custom .icon-bar {
+  background-color: white; }
+
+.navbar-custom .navbar-nav > .active > a, .navbar-custom .navbar-nav > .open > a, .navbar-custom .navbar-nav > .open > a, .navbar-custom .navbar-nav > .open > a:hover, .navbar-custom .navbar-nav > .open > a, .navbar-custom .navbar-nav > .open > a:hover, .navbar-custom .navbar-nav > .open > a:focus {
+  background-color: #2B292A; }
+
+
+/*# sourceMappingURL=custom.css.map */
+
+
+
+
+
 
 /* Do not remove this comments bellow. It's the markers used by gulp-inject to inject
    all your sass files automatically */

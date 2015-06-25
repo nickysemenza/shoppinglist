@@ -1,0 +1,58 @@
+<div ng-include="'app/components/navbar/navbar.html'"></div>
+<div class="container">
+
+  <h1>Admin Dashboard | Driver Management</h1>
+  <h2>Schedule Preferences</h2>
+  <table class="table table-bordered table-striped">
+    <tr>
+      <th>name</th>
+      <th>day</th>
+      <th>start</th>
+      <th>end</th>
+    </tr>
+    <tr ng-repeat="each in schedule_preferences">
+      <td>{{each.user_display_name}}</td>
+      <td>{{each.day}}</td>
+      <td>{{each.start_hour}}:{{each.start_minute}} {{each.start_meridian}}</td>
+      <td>{{each.end_hour}}:{{each.end_minute}} {{each.end_meridian}}</td>
+    </tr>
+  </table>
+
+<hr>
+  <h2>Contact Points</h2>
+
+
+  <input type="button" class="btn btn-primary" value="Add" data-ng-click="addRow()"/>
+  <input type="button" class="btn btn-success" value="Save Changes" data-ng-click="update()"/>
+  <table class="table table-bordered table-hover">
+    <tr>
+      <th></th>
+      <th>Day of week</th>
+      <th>time</th>
+      <th>Location</th>
+      <th>User</th>
+    </tr>
+    <tr data-ng-repeat="(productIndex, each) in timechoices">
+      <td><input type="button" class="btn btn-danger" value="Delete" data-ng-click="removeRow(productIndex)"/></td>
+      <td>  <select data-ng-options="o for o in dayOptions" data-ng-model="each.day"></select></td>
+      <td>
+        <select data-ng-options="o for o in hourOptions" data-ng-model="each.start_hour"></select>
+        <select data-ng-options="o for o in minuteOptions" data-ng-model="each.start_minute"></select>
+        <select data-ng-options="o for o in meridianOptions" data-ng-model="each.start_meridian"></select>
+      </td>
+      <td>
+        <select data-ng-options="o for o in test1Options" data-ng-model="each.end_hour"></select>
+      </td>
+      <td>
+        <select data-ng-options="o for o in test2Options" data-ng-model="each.end_minute"></select>
+      </td>
+    </tr>
+  </table>
+
+  <h3>Average Transit time calculator</h3>
+  check time between <select data-ng-options="o for o in test1Options" data-ng-model="each.end_minut2e"></select> and
+  <select data-ng-options="o for o in test1Options" data-ng-model="each.end_minute"></select>
+  <input type="button" class="btn btn-success" value="Lookup" data-ng-click=""/>
+  <div class="well well-sm" style="width: 20%">~17 minutes</div>
+  <pre>{{timechoices | json:2}}</pre>
+</div>

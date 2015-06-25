@@ -1,0 +1,36 @@
+<!-- account.html -->
+  <div ng-include="'app/components/navbar/navbar.html'"></div>
+<div class="container">
+
+<div class="jumbotron text-center">
+    <h3>Hello, {{me.first_name}} {{me.last_name}}</h3>
+  {{me.school.name}} | {{me.dorm.name}}
+
+</div>
+
+  <h2>Cards</h2>
+  <div  ng-repeat="each in cards" class="panel panel-primary" close="closeAlert($index)">
+
+    <div class="panel-heading">
+      <button type="button" class="close"  ng-click="closeAlert($index)">
+        <span>&times;</span>
+      </button>
+
+      <h3 class="panel-title">{{each.title}}</h3>
+
+    </div>
+    <div class="panel-body">
+      {{each.description}}
+    </div>
+  </div>
+
+
+  <h2><a ui-sref="orders">Orders</a></h2>
+
+  <div  ng-repeat="each in orders.data" >
+    {{each.status}}
+    {{each.id}}
+    {{each.user.name}}
+  </div>
+</div>
+

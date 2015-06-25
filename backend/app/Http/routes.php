@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/test','MainController@test');
+Route::get('stores','MainController@getStores');
+
+Route::get('products','MainController@getProducts');
+Route::post('products/bulk','MainController@bulkProductAdd');
+Route::get('product/{id}','MainController@getProduct');
+Route::post('product','MainController@newProduct');
+Route::get('list/','MainController@getList');
+Route::get('list/{store_id}','MainController@getList');
+Route::get('list/check/{id}','MainController@checkOff');
+Route::get('list/add/{id}/{quantity}','MainController@addToList');
+

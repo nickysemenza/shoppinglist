@@ -1,33 +1,71 @@
-<div class="container">
+
 
   <div ng-include="'app/components/navbar/navbar.html'"></div>
+<div class="container">
 
-  <div class="jumbotron text-center">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      Always a pleasure scaffolding your apps.
-    </p>
-    <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
-  </div>
 
-  <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-        <div class="caption">
-          <h3>{{awesomeThing.title}}</h3>
-          <p>{{awesomeThing.description}}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <hr>
+<!-- 	<pre>{{selected_product | json:2}}</pre>
+ -->
+    <input autocomplete="off"  
+         ng-model="selected_product" 
+         placeholder="Product"
+         type="text"
+         typeahead="item as item.name for item in products | filter:$viewValue | limitTo:8" 
+         class="form-control"/>
+         <input type="button" class="btn btn-danger" value="Add to List" data-ng-click="addSelectedProduct(1)"/>
 
-  <div class="footer">
-    <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-  </div>
+
+
+
+
+  <h1>all</h1>
+
+  <table class="table table-bordered table-hover">
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>quantity</th>
+      <th>stores</th>
+    </tr>
+    <tr data-ng-repeat="(productIndex, each) in list">
+      <td><input type="button" class="btn btn-danger" value="Delete" data-ng-click="removeRow(each.list_item_id)"/></td>
+      <td>{{each.product_info.name}}</td>
+      <td>{{each.quantity}}</td>
+      <td><li ng-repeat="locs in each.product_info.product_locations">{{locs.name}}</li></td>
+    </tr>
+  </table>
+
+<div ng-repeat="eachcat in list_cat.data">
+	<h2>{{eachcat.name}}</h2>
+<!-- 	<pre>{{eachcat.items | json}}</pre>
+ -->	<table class="table table-bordered table-hover">
+	    <tr>
+	      <th></th>
+	      <th>name</th>
+	      <th>quantity</th>
+	    </tr>
+	    <tr data-ng-repeat=" each in eachcat.items">
+	      <td><input type="button" class="btn btn-danger" value="Delete" data-ng-click="removeRow(each.list_item_id)"/></td>
+	      <td>{{each.name}}</td>
+	      <td>{{each.quantity}}</td>
+	    </tr>
+	  </table>
+
+	<hr>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- <pre>{{list | json:2}}</pre>
+ -->
+
+
 
 </div>
